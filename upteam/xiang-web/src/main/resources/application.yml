@@ -1,0 +1,5 @@
+server:
+  context-path: /upteam
+spring:
+  profiles:
+    active: local

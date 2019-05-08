@@ -1,0 +1,60 @@
+buildscript {
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springbootVersion}")
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'dong'
+    version =  '1.0'
+}
+
+compileJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+sourceSets {
+    main.java.srcDir "src/main/java"
+    main.resources.srcDir "src/main/resources"
+    test.java.srcDir "src/test/java"
+}
+
+task taskJar(type:Jar, dependsOn: compileJava) {
+    from 'bin'
+    destinationDir = file('build/libs')
+}
+
+task clearPj(type:Delete){
+    delete 'build','target'
+}
+
+task release(type: Copy,dependsOn: [clearPj,taskJar]) {
+    from('build/libs') {
+        include '*.jar'
+    }
+    into ('target')
+}
+
+dependencies {
+
+    compile project(':business')
+
+    //Spring boot related
+    compile(group: 'org.springframework.boot', name: 'spring-boot-starter', version:"${springbootVersion}")
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:"${springbootVersion}"
+    compile "org.springframework.boot:spring-boot-starter-tomcat"
+
+    //Test releated
+    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:"${springbootVersion}")
+
+}

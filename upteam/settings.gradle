@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'upteam'
+include ':utils'
+include ':model'
+include ':business'
+include ':qiang-web'
+include ':yun-web'
+include ':kang-web'
+include ':xiang-web'
+include ':dong-web'
+
+project(':utils').projectDir = "$rootDir/utils" as File
+project(':model').projectDir = "$rootDir/model" as File
+project(':business').projectDir = "$rootDir/business" as File
+project(':qiang-web').projectDir = "$rootDir/qiang-web" as File
+project(':yun-web').projectDir = "$rootDir/yun-web" as File
+project(':kang-web').projectDir = "$rootDir/kang-web" as File
+project(':xiang-web').projectDir = "$rootDir/xiang-web" as File
+project(':dong-web').projectDir = "$rootDir/dong-web" as File

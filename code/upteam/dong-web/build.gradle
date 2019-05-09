@@ -1,3 +1,5 @@
+import com.sun.org.apache.xalan.internal.xsltc.compiler.Copy
+
 buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springbootVersion}")
@@ -38,7 +40,7 @@ task clearPj(type:Delete){
     delete 'build','target'
 }
 
-task release(type: Copy,dependsOn: [clearPj,taskJar]) {
+task release(type: Copy,dependsOn: [clearPj, taskJar]) {
     from('build/libs') {
         include '*.jar'
     }
@@ -48,13 +50,9 @@ task release(type: Copy,dependsOn: [clearPj,taskJar]) {
 dependencies {
 
     compile project(':business')
-
-    //Spring boot related
     compile(group: 'org.springframework.boot', name: 'spring-boot-starter', version:"${springbootVersion}")
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:"${springbootVersion}"
     compile "org.springframework.boot:spring-boot-starter-tomcat"
-
-    //Test releated
     testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:"${springbootVersion}")
 
 }

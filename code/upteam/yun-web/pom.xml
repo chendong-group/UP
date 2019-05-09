@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.upteam.study</groupId>
+    <artifactId>yun-web</artifactId>
+    <version>1.0</version>
+
+    <!--这是spring boot的父依赖项目，只要加入这个，就可以省去很多配置，比如maven打包需要的那些插件、构建的过程等
+    另外，加上这个后，spring boot的扩展很容易，必须要再加上版本号了，比如后面的spring-boot-starter-web可以不用指定版本号
+    原理很简单，spring-boot-starter-web-parent里面有spring boot相关的dependency management
+    -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.4.RELEASE</version>
+        <relativePath />
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <!--上面已经加过spring boot parent的依赖并指定版本号了，这里加入spring-boot-maven-plugin依赖即可（不需要填写版本号）
+    为什么要加这个插件呢？加入这个插件后可以将所有必要的dependency打入到jar包中，打包是不会包含dependency
+    -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+    <name>yun</name>
+
+    <!--加入spring boot项目的web模块依赖，别小瞧这一句哦，加上这个之后几乎就包含了构建一个web项目需要的所有依赖
+    比如Spring MVC的相关依赖，Spring core, context, aop... 还有log相关的依赖，jackson的依赖以及一些基础的工具包
+    -->
+    <dependencies>
+        <dependency>
+            <groupId>org.upteam.study</groupId>
+            <artifactId>business</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

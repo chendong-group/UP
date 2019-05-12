@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.upteam.service.HelloService;
+//import org.upteam.service.HelloService;
 
 /**
  * @classname:
@@ -16,12 +16,13 @@ import org.upteam.service.HelloService;
 @RequestMapping(value = "/hello")
 public class HelloController {
 
-    @Autowired
-    private HelloService helloService;
+    //@Autowired
+    //private HelloService helloService;
 
     @RequestMapping(value = StringUtils.EMPTY, method = RequestMethod.GET)
     public String hello() {
-        return helloService.getHello().getMessage();
+        return "Hello";
+        //return helloService.getHello().getMessage();
     }
 
 }

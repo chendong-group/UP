@@ -21,14 +21,15 @@ public class TestAccessController {
     @Autowired
     private UserAccess userAccess;
 
-    @PreAuthorize("userAccess.hasRole('Read')")
+    @PreAuthorize("@userAccess.hasRole('Read')")
     @RequestMapping(value = "/readaccess", method = RequestMethod.POST)
     public String testRead() {
+        userAccess.hasRole("Read");
         System.out.println("Comming in read access");
         return " ---- read access";
     }
 
-    @PreAuthorize("userAccess.hasRole('Write')")
+    @PreAuthorize("@userAccess.hasRole('Write')")
     @RequestMapping(value = "/writeaccess", method = RequestMethod.POST)
     public String testWrite() {
         System.out.println("Comming in write access");

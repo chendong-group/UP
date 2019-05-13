@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
  * @author: Danny Chen
  * @create: 2019-05-12 19:05
  */
-@Component
 public class UserAccess {
 
     public boolean hasRole(String role) {

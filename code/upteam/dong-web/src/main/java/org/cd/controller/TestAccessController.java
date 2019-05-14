@@ -36,4 +36,17 @@ public class TestAccessController {
         return " ---- write access";
     }
 
+    @RequestMapping(value = "/useraccess", method = RequestMethod.POST)
+    public String testUserAccess() {
+        System.out.println("Comming in user access");
+        return " ---- user access";
+    }
+
+    @RequestMapping(value = "/adminaccess", method = RequestMethod.POST)
+    public String testAdminAccess() {
+        System.out.println("Comming in admin access");
+        return " ---- admin access";
+    }
+
+
 }

@@ -1,5 +1,12 @@
 server:
-  context-path: /upteam
+  port: 8080
 spring:
   profiles:
     active: local
+
+cd:
+  jwt:
+    key-store: mytest.jks
+    key-store-password: mypass
+    key-pair-alias: mytest
+    key-pair-password: mypass

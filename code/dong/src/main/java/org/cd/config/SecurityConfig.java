@@ -17,7 +17,7 @@ import org.springframework.security.web.access.AccessDeniedHandler;
  * @author: Danny Chen
  * @create: 2019-05-12 15:45
  */
-@Configuration
+/*@Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -53,4 +53,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .withUser("upteam").password("123456").roles("ADMIN");
     }
-}
+}*/
